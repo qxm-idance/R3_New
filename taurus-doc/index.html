@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Taurus - Develop Document</title>
+	<link rel="stylesheet" type="text/css" href="css/doc.css"/>
+</head>
+
+<body>
+<!-- doc-menu-top -->
+<div class="doc-menu-top">
+	<a href="#" class="doc-brand"><img src="img/logo.png">
+	</a>
+	<nav>
+		<ul>
+			<li class="current"><a href="index.html">全局样式</a></li>
+			<li><a href="">样式组件</a></li>
+			<li><a href="">布局</a></li>
+			<li><a href="component/component-demo.html" target="_blank">组件Demo</a></li>
+			<li><a href="component/docs/index.html" target="_blank">API</a></li>
+			<li><a target="_blank" href="guideline/Veris%20CRM%20-%20%20Interaction%20Guideline.pdf">交互规范</a></li>
+			<li><a target="_blank" href="guideline/Veris%20CRM%20-%20Visual%20Guideline.pdf">视觉规范</a></li>
+			<li><a target="_blank" href="coding-convention/aries-fe-coding-convention.html">编码规范</a></li>
+			<li><a href="components-guide/component-list.html">扩展组件</a></li>
+		</ul>
+	</nav>
+	<p class="doc-description">前端开发手册</p>
+</div>
+ <iframe src=""  frameborder="0" style="display: none;width: 100%;height:91.1%; overflow-y : hidden;"></iframe>
+<!-- /doc-menu-top -->
+<!-- doc-menu-left -->
+<div class="doc-menu-left">
+	<ul>
+		<li>
+			<a href="#text">文本</a>
+			<ul class="doc-sub-menu">
+				<li><a href="#textColor">文字颜色</a></li>
+				<li><a href="#bgColor">背景颜色</a></li>
+				<li><a href="#fontSize">文字大小</a></li>
+				<li><a href="#lineHeight">行高</a></li>
+				<li><a href="#fontWeight">字重</a></li>
+				<li><a href="#fontStyle">文字样式</a></li>
+				<li><a href="#textAlign">文字对齐</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<!-- /doc-menu-left -->
+<!-- doc-content -->
+<div class="doc-content">
+	<h2 class="doc-content__title label-header" id="text">文本</h2>
+	<h3 class="doc-content__subtitle label-header" id="textColor">文字颜色</h3>
+	<div class="doc-example-box">
+		<span class="doc-btn-clipboard">查看源码</span>
+		<div class="doc-example">
+			<!-- 此处放置示例 -->
+		</div>
+		<div class="doc-code">
+			<!-- 此处放置示例代码 -->
+		</div>
+	</div>
+	<!-- text-color end -->
+</div>
+<!-- /doc-content -->
+<!-- doc-gotop -->
+<a href="#" class="doc-gotop">
+	↑
+</a>
+<!-- /doc-gotop -->
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.doc-menu-top a').on('click', function (e) {
+			if($(this).attr('href') === 'component/component-demo.html' || $(this).attr('href') === 'component/docs/index.html'){
+				e.preventDefault();
+				$('iframe').attr('src',$(this).attr('href')).css('display','block');
+				$('.doc-menu-top').css('margin-bottom','0')
+				$('.doc-content').hide()
+   			$('.doc-menu-left').hide();
+			}else{
+				$('iframe').attr('src',$(this).attr('href')).css('display','none');
+				$('.doc-menu-top').css('margin-bottom','30')
+				$('.doc-content').show()
+				$('.doc-menu-left').show();
+			}
+
+		})
+	})
+
+</script>
+</html>

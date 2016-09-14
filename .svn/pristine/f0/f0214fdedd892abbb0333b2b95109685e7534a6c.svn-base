@@ -1,0 +1,24 @@
+{
+  "name": "api-doc",
+  "version": "1.0.0",
+  "description": "taurus front end framework docs",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "taurus",
+    "docs"
+  ],
+  "author": "Harwin",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-markdown": "^1.2.0"
+
+  }
+}

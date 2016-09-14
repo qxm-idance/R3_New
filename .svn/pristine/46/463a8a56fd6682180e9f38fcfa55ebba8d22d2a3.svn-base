@@ -1,0 +1,93 @@
+<script>
+import Vue from 'vue';
+
+const CSS_ACTIVE = 'is-active';
+const CSS_ERROR = 'tooltip--error';
+const CSS_BLUE = 'tooltip--blue';
+const PREFIX_TIPID = 'tooltip_';
+
+export default {
+  install: function (Vue) {
+    Vue.directive('tooltip', {
+      bind: function () {
+        /**
+         * 构造tip结构
+         */
+        let classReg = new RegExp('(\\s|^)' + CSS_ACTIVE + '(\\s|$)');
+        let body = document.getElementsByTagName('body')[0];
+        let tipNode = document.createElement('div');
+        // 构造随机toolId将el和tip联系起来
+        let tipId = PREFIX_TIPID + generateTipId();
+        this.el.setAttribute('tipId', tipId);
+        tipNode.setAttribute('tipId', tipId);
+        tipNode.setAttribute('role', 'tooltip');
+        // 是否是error提示
+        tipNode.className = 'tooltip';
+        if (this.arg === 'error') {
+          tipNode.className += ' ' + CSS_ERROR;
+        } else if (this.arg === 'blue') {
+          tipNode.className += ' ' + CSS_BLUE;
+        }
+        body.appendChild(tipNode);
+        /**
+         * 鼠标划过效果
+         */
+        this.el.addEventListener('mouseover', function () {
+          if (!tipNode.className.match(classReg)) {
+            tipNode.className += ' ' + CSS_ACTIVE;
+          }
+        });
+        this.el.addEventListener('mouseout', function () {
+          if (tipNode.className.match(classReg)) {
+            tipNode.className = tipNode.className.replace(classReg, '');
+          }
+        });
+        function generateTipId () {
+          var tipId = '';
+          for(; tipId.length < 16; tipId += Math.random().toString(36).substr(2));
+          return tipId.substr(0,16);
+        };
+      },
+      update: function (content) {
+        /**
+         * 构造提示内容
+         */
+        let tipId = this.el.getAttribute('tipId');
+        let tipNode = document.querySelector('[tipId=' + tipId + '][role=tooltip]');
+        // 构造提示title和text
+        let tipContent = [];
+        tipContent.push('<p>');
+        if (typeof content === 'string'){
+          tipContent.push(content);
+        } else {
+          if (content && content.title) {
+            tipContent.push('<strong>' + content.title + '</strong><br>');
+          }
+          if (content && content.text) {
+            tipContent.push(content.text);
+          }
+        }
+        tipContent.push('</p>');
+        tipNode.innerHTML = tipContent.join('');
+
+        /**
+         * 计算tips的位置
+         */
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+        let iconLeft = this.el.getBoundingClientRect().left + scrollLeft;
+        let iconTop = this.el.getBoundingClientRect().top + scrollTop;
+        // 由于offsetWidth计算时间在chrome和ff中不同，因此延时计算以作兼容
+        setTimeout(function () {
+          let tipHeight = tipNode.offsetHeight;
+          let tipWidth = tipNode.offsetWidth;
+          tipNode.style.maxHeight = '320px';
+          tipNode.style.left = iconLeft - tipWidth / 2 + 9 + 'px';
+          tipNode.style.top = iconTop - tipHeight - 12 + 'px';
+        }, 0);
+
+      }
+    });
+  }
+};
+</script>

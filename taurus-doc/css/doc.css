@@ -1,0 +1,300 @@
+/*
+ *reset
+ */
+html,
+body
+{
+    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'microsoft Yahei' !important;
+    font-size: 14px;
+    line-height: 1.42857143;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: #333;
+    background-color: transparent;
+
+    -webkit-font-smoothing: antialiased;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: inherit !important;
+}
+/*统一定义链接和链接交互样式*/
+a
+{
+    cursor: pointer;
+    text-decoration: none;
+
+    color: #333;
+}
+a:hover
+{
+    text-decoration: none;
+
+    color: #1a94dc;
+}
+a:focus
+{
+    text-decoration: none;
+
+    color: #1a94dc;
+}
+
+ul,
+ul li
+{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+
+/*
+ *doc-menu-top
+ */
+.doc-menu-top
+{
+    line-height: 56px;
+
+    height: 56px;
+    margin-bottom: 30px;
+    padding: 0 25px;
+
+    background-color: #111;
+}
+.doc-brand,
+.doc-menu-top nav
+{
+    float: left;
+}
+.doc-brand
+{
+    padding-right: 25px;
+}
+.doc-brand:hover
+{
+    color: #fff;
+}
+.doc-brand img
+{
+    vertical-align: middle;
+}
+.doc-menu-top nav li
+{
+    float: left;
+
+    padding: 0 19px;
+}
+.doc-menu-top nav li a
+{
+    color: #ddd;
+}
+.doc-menu-top nav li.current
+{
+    background-color: #212121;
+}
+.doc-menu-top nav li.current a,
+.doc-menu-top nav li a:hover
+{
+    color: #fff;
+}
+
+.doc-description
+{
+    float: right;
+
+    color: #6f6f6f;
+
+    margin: 0;
+}
+
+
+
+/*
+ *doc-menu-left
+ */
+.doc-menu-left
+{
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+}
+.doc-menu-left__fixed
+{
+    position: fixed;
+    top: 10px;
+    left: 0;
+}
+.doc-menu-left ul
+{
+    width: 140px;
+
+    text-align: right;
+}
+.doc-menu-left ul li
+{
+    line-height: 24px;
+}
+.doc-menu-left ul li a
+{
+    font-size: 12px;
+
+    display: block;
+
+    padding-right: 30px;
+
+    color: #999;
+}
+.doc-menu-left > ul > li > a
+{
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #666;
+}
+.doc-menu-left ul li a:hover
+{
+    color: #333;
+}
+.doc-menu-left .active > a
+{
+    padding-right: 28px;
+
+    color: #e54545;
+    border-right: 2px solid #e54545;
+}
+.doc-menu-left > ul > li.active > a
+{
+    padding-right: 30px;
+
+    border-right: none;
+}
+.doc-sub-menu
+{
+    display: none;
+}
+.doc-menu-left li.active .doc-sub-menu
+{
+    display: block;
+}
+
+
+
+/*
+ *doc-content
+ */
+.doc-content
+{
+    margin-right: 15px;
+    margin-left: 188px;
+    padding-bottom: 40%;
+}
+.doc-content__title,
+.doc-content__subtitle
+{
+    line-height: 2;
+
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.doc-example-box
+{
+    position: relative;
+
+    padding-top: 30px;
+
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+}
+.doc-example-box:after
+{
+    font-size: 12px;
+    font-weight: bold;
+
+    position: absolute;
+    top: -1px;
+    left: -1px;
+
+    padding: 3px 7px;
+
+    content: 'Example';
+
+    color: #9da0a4;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 4px 0;
+    background-color: #f5f5f5;
+}
+.doc-example
+{
+    padding: 15px;
+}
+.doc-code
+{
+    padding: 15px;
+
+    border-top: 1px solid rgba(0,0,0,.1);
+    box-shadow: inset 40px 0 0 #fbfbfc,inset 41px 0 0 #ececf0;
+}
+.doc-btn-clipboard
+{
+    font-size: 12px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: block;
+
+    padding: 5px 8px;
+
+    cursor: pointer;
+
+    color: #767676;
+    border-bottom: 1px solid #e1e1e8;
+    border-left: 1px solid #e1e1e8;
+    border-radius: 0 4px 0 4px;
+    background-color: #fff;
+}
+
+
+/*
+ *doc-gotop
+ */
+.doc-gotop
+{
+    font-size: 24px;
+    line-height: 40px;
+
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    text-align: center;
+
+    opacity: .5;
+    color: #fff;
+    background-color: #000;
+
+    fiter: alpha(opacity=50);
+}
+.doc-gotop:hover
+{
+    opacity: .7;
+
+    fiter: alpha(opacity=70);
+}

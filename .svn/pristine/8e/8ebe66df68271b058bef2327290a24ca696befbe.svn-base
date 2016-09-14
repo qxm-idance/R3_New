@@ -1,0 +1,29 @@
+import Vue from 'vue';
+import Pager from 'taurus/components/pager/pager';
+
+new Vue({
+  el: 'body',
+  components: {
+    't-pager': Pager
+  },
+  data: function () {
+    return {
+      currentPageNumber: 2
+    };
+  },
+  methods: {
+    hdPageChanged: function (pn) {
+      this.currentPageNumber = pn;
+    },
+    gotoNum7: function () {
+      this.$refs.myPager.pageNumber = 7;
+      this.currentPageNumber = 7;
+    },
+    prev: function () {
+      this.$refs.myPager.prev();
+    },
+    next: function () {
+      this.$refs.myPager.next();
+    }
+  }
+});

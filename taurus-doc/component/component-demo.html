@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component Demo</title>
+	<style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-overflow-scrolling: touch;
+			-webkit-tap-highlight-color: transparent;
+			-webkit-text-size-adjust: none;
+			-webkit-touch-callout: none;
+			-webkit-font-smoothing: antialiased
+
+		}
+
+		.summary {
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			z-index: 1;
+			overflow-y: auto;
+			width: 300px;
+			color: #364149;
+			padding:0 15px 15px 15px;
+			background: #fafafa;
+			border-right: 1px solid rgba(0,0,0,.07);
+			-webkit-transition: left 250ms ease;
+			-moz-transition: left 250ms ease;
+			-o-transition: left 250ms ease;
+			transition: left 250ms ease;
+		}
+		.summary>h2{
+			text-align: center;
+		}
+		.summary ul {
+			display: block;
+			list-style-type: none;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+			-webkit-padding-start: 40px;
+		}
+		.summary li {
+			list-style-position: outside;
+			margin: 0px;
+			position: relative;
+		}
+		li a {
+			display: inline-block;
+			padding: 5px;
+			text-decoration: none;
+			color: rgb(6, 85, 136)
+		}
+		.innerFrame {
+			position: absolute;
+			left: 300px;
+			top:0;
+			width: 77.77%;
+			height:100%;
+		}
+	</style>
+</head>
+<body>
+ <nav class="summary" role="navigation">
+
+ </nav>
+ <div class="innerFrame">
+	 <iframe id="demoFrame" frameborder="0" style="width:100%;height:100%;" ></iframe>
+ </div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+	$(document).on('ready',function () {
+		$.get('demo-index.html', null, function (data) {
+					console.log(data);
+					$('.doc-content').html(data);
+					$('[role="navigation"]').html(data);
+				})
+		$('.summary').on('click','a',function (e) {
+			e.preventDefault();
+			var href =  $(this).attr('href');
+			if(href){
+				$('#demoFrame').attr('src',href);
+			}
+
+		})
+	})
+</script>
+</body>
+</html>
