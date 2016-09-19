@@ -2,21 +2,21 @@
 <html lang="en" class="js canvas no-touch rgba borderradius boxshadow opacity cssanimations cssgradients csstransforms csstransforms3d fontface video audio localstorage svg json checked">
 <head>
   <meta charset="UTF-8">
-  <title>AmCharts</title>
+  <title>video player Demo</title>
   <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
   <link href="/assets/css/all.css" rel="stylesheet">
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
 <div class="container">
   <div class="block__header leader--large trailer--large">
-    <h2 class="title--medium">Doughnut amchart</h2>
+    <h2 class="title--medium">video player</h2>
   </div>
-  <div id="doughnutDiv">
-    <t-doughnut :data="doughnutData" title-field="country" value-field="visits" labels-enabled="false" legend="true" :content="content"></t-doughnut>
+  <div class="form-row" id = "videoPlayerDiv">
+    <t-video-player :height="height" :width="width" :videoid="videoid" v-ref:my-player></t-video-player>
   </div>
-  <div id="gaugeDiv">
-    <t-gauge :data="gaugeData"></t-gauge>
-  </div>
+
 </div>
 </body>
 </html>
+
